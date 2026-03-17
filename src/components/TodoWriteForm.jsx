@@ -1,18 +1,28 @@
-import { useTodos } from '../context/TodoContext'
-
 function TodoWriteForm() {
-    const { addTodo } = useTodos()
-    const handleOnSubmit = (e) => {
+    // const { addTodo } = useTodos()
+
+    const hadleOnsubmit = (e) => {
         e.preventDefault()
         const form = e.target
-        addTodo(form.todo.value)
+
+        fetch('https://dummyjson.com/todos/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                todo: form.todo.value,
+                completed: false,
+                userId: 5,
+            }),
+        })
+
+        // addTodo(form.todo.value)
     }
 
     return (
         <>
-            <form onSubmit={handleOnSubmit}>
+            <form onSubmit={hadleOnsubmit}>
                 <input type="text" name="todo" />
-                <button type="submit">등록</button>
+                <button>입력</button>
             </form>
         </>
     )
