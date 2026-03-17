@@ -8,10 +8,11 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route index element={<Main />}></Route>
-                <Route path="/list" element={<List />}></Route>
+                <Route path="/list/:id" element={<List />}></Route>
                 <Route path="/new" element={<Form />}></Route>
             </Routes>
         </BrowserRouter>
     )
 }
+
 export default App
