@@ -1,7 +1,8 @@
+import { useTodos } from '../context/TodoContext'
 import TodoItem from './TodoItem'
 
-function TodoList({ todos }) {
-    // const { todos } = useTodos()
+function TodoList() {
+    const { todos } = useTodos()
     return (
         <ul>
             {todos.map((todo) => (
